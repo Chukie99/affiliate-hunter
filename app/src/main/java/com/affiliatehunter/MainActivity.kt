@@ -1,0 +1,35 @@
+package com.affiliatehunter
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.runtime.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.*
+import com.affiliatehunter.ui.theme.AffiliateHunterTheme
+import com.affiliatehunter.ui.screens.*
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class MainActivity: ComponentActivity(){
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        setContent{
+            AffiliateHunterTheme{
+                Surface(color=MaterialTheme.colorScheme.background, modifier=Modifier.fillMaxSize()){
+                    val nav = rememberNavController()
+                    NavHost(navController=nav, startDestination="home"){
+                        composable("home"){ HomeScreen(nav) }
+                        composable("favorites"){ FavoritesScreen(nav) }
+                        composable("settings"){ SettingsScreen(nav) }
+                        composable("detail/{id}"){ back ->
+                            DetailScreen(nav, back.arguments?.getString("id")?:"")
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

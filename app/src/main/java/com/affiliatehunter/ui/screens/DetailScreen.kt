@@ -1,0 +1,67 @@
+package com.affiliatehunter.ui.screens
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
+import com.affiliatehunter.ui.HomeViewModel
+import com.affiliatehunter.ui.theme.*
+import com.affiliatehunter.utils.AffiliateLink
+import android.content.ClipData
+import android.content.Context
+import androidx.compose.ui.platform.LocalContext
+import android.widget.Toast
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DetailScreen(nav: NavController, id: String, vm: HomeViewModel = hiltViewModel()){
+    val s by vm.s.collectAsState()
+    val p = s.products.find{ it.id==id } ?: s.filtered.find{ it.id==id }
+    Scaffold(topBar={ TopAppBar(title={Text("Detail")}, navigationIcon={ IconButton(onClick={nav.popBackStack()}){ Icon(Icons.Filled.ArrowBack,null)} }) }, containerColor = BgWarm){ pad ->
+        if(p==null){ Box(Modifier.fillMaxSize().padding(pad), contentAlignment=androidx.compose.ui.Alignment.Center){ Text("Produk tidak ditemukan") } ; return@Scaffold }
+        val ctx = LocalContext.current
+        Column(Modifier.fillMaxSize().padding(pad).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement=Arrangement.spacedBy(10.dp)){
+            Text(p.name, fontWeight=FontWeight.Bold, fontSize=16.sp, color=Ink)
+            Card(shape=RoundedCornerShape(14.dp), colors=CardDefaults.cardColors(containerColor=Color.White)){
+                Column(Modifier.padding(14.dp), verticalArrangement=Arrangement.spacedBy(8.dp)){
+                    Row(horizontalArrangement=Arrangement.SpaceBetween, modifier=Modifier.fillMaxWidth()){
+                        Text("Harga Rp"+p.price, fontWeight=FontWeight.Bold, color=Primary)
+                        Text("Terjual "+p.sold, color=Muted)
+                    }
+                    Text("Rating "+p.rating+" ("+p.reviewCount+" ulasan)", color=Muted)
+                    Text("Per hari: "+"%.1f".format(p.soldPerDay), color=Muted)
+                    if(p.velocityBadge!=null) Text("Velocity: "+p.velocityBadge, color=Warn, fontWeight=FontWeight.SemiBold)
+                    Text("Komisi real "+(p.commissionRate*100).toInt()+"% ~ Rp"+p.commissionEst, color=Ok, fontWeight=FontWeight.SemiBold)
+                    Text("Link: "+p.link, fontSize=11.sp, color=Muted)
+                    Text("Link aff: "+AffiliateLink.toAffiliate(p.link, s.affId), fontSize=11.sp, color=Primary)
+                    if(p.isFlagged) Text("FLAG: "+(p.flagReason?:"toko berisiko"), color=Red)
+                    Button(onClick={
+                        val aff = AffiliateLink.toAffiliate(p.link, s.affId)
+                        val clip = ClipData.newPlainText("aff", aff)
+                        (ctx.getSystemService(Context.CLIPBOARD_SERVICE) as android.content.ClipboardManager).setPrimaryClip(clip)
+                        Toast.makeText(ctx,"Link aff disalin",Toast.LENGTH_SHORT).show()
+                    }){ Text("Copy link aff") }
+                }
+            }
+            // simple velocity bar
+            Card(shape=RoundedCornerShape(14.dp), colors=CardDefaults.cardColors(containerColor=Color.White)){
+                Column(Modifier.padding(14.dp)){
+                    Text("Velocity 7 hari", fontWeight=FontWeight.SemiBold, color=Ink)
+                    Spacer(Modifier.height(8.dp))
+                    LinearProgressIndicator(progress={ (p.soldPerDay/50f).coerceIn(0f,1f) }, modifier=Modifier.fillMaxWidth().height(10.dp), color=Primary)
+                    Text("%.1f terjual/hari".format(p.soldPerDay), fontSize=11.sp, color=Muted)
+                }
+            }
+        }
+    }
+}

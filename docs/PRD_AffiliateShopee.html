@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Affiliate Hunter Shopee — PRD Android (FLAT Modern Minimal)</title>
+<style>
+:root{--primary:#3368A0;--mid:#66A3BF;--mint:#C8DFDB;--bg:#F2EFE7;--ink:#25324A;--muted:#6B7D94;--line:#D6E2E0;--line2:#EAF0ED;--page:#F9F8F6;--ok:#2E7D6B;--red:#C25A4A;--warn:#8C5A18}
+*{box-sizing:border-box}body{margin:0;font:14px/1.6 Inter,system-ui,sans-serif;background:var(--page);color:var(--ink)}
+.wrap{max-width:980px;margin:0 auto;padding:24px 16px 48px}
+.hero{background:var(--primary);color:#fff;border-radius:20px;padding:26px 22px}
+.hero h1{margin:0;font-size:24px;letter-spacing:-.02em}.hero p{margin:8px 0 0;opacity:.95;max-width:760px}
+.badge{display:inline-block;background:#fff;color:var(--primary);border-radius:999px;padding:4px 10px;font:11px/1 Inter;font-weight:800;margin-bottom:10px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-top:16px}
+.card h2{margin:0 0 8px;font-size:16px}.card h3{margin:14px 0 6px;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media(max-width:760px){.grid2{grid-template-columns:1fr}}
+.kv{display:grid;grid-template-columns:150px 1fr;gap:6px;font-size:13px}.kv b{color:var(--muted);font-weight:600}
+.pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;border:1px solid var(--line);background:var(--bg)}
+.pill.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.pill.mid{background:var(--mid);color:#fff;border-color:var(--mid)}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}th,td{padding:8px 10px;border:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--bg);font-size:11px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase}
+.callout{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px;margin-top:10px}
+.callout.warn{background:#FFF4E6;border-color:#F5D6A8}
+.steps{counter-reset:s}.steps li{counter-increment:s;list-style:none;position:relative;padding-left:28px;margin:7px 0}.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:20px;height:20px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font:11px/1 Inter;font-weight:800}
+code{background:var(--bg);padding:1px 6px;border-radius:6px;font-size:12px;border:1px solid var(--line)}
+a{color:var(--primary)}.foot{margin-top:18px;text-align:center;color:var(--muted);font-size:12px}
+ul{margin:6px 0 0 18px}
+.swatch{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.sw{width:96px;border-radius:10px;border:1px solid var(--line);overflow:hidden;background:#fff}.sw i{display:block;height:36px}.sw span{display:block;padding:6px 8px;font:11px Inter;color:var(--muted)} .sw b{display:block;font-size:11px;color:var(--ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="hero">
+<div class="badge">ANDROID • FLAT • NO AI • NO GRADIENT • SHOPEE ONLY</div>
+<h1>Affiliate Hunter Shopee — PRD v1.0 Android</h1>
+<p>Aplikasi <b>Android (API 24-34)</b> untuk hunter affiliate Shopee/TikTok yang <b>butuh barang PASTI laku & dibayar</b>. Bukan asal viral — scoring pakai <code>terjual + rating + harga sweet spot + estimasi komisi</code>. Input kategori bebas + filter terjual/rating/harga → list ranking → link affiliate siap tempel → export Excel. <b>Tanpa AI, hanya internet</b> + hormati rate-limit.</p>
+</div>
+
+<div class="card">
+<h2>🎨 0 — Identitas FLAT Modern Minimal (ColorHunt #F2EFE7)</h2>
+<div class="swatch">
+<div class="sw"><i style="background:#3368A0"></i><span><b>#3368A0</b>primary</span></div>
+<div class="sw"><i style="background:#66A3BF"></i><span><b>#66A3BF</b>mid</span></div>
+<div class="sw"><i style="background:#C8DFDB"></i><span><b>#C8DFDB</b>mint</span></div>
+<div class="sw"><i style="background:#F2EFE7"></i><span><b>#F2EFE7</b>warm bg</span></div>
+<div class="sw"><i style="background:#25324A"></i><span><b>#25324A</b>ink</span></div>
+<div class="sw"><i style="background:#D6E2E0"></i><span><b>#D6E2E0</b>line</span></div>
+</div>
+<p style="margin:8px 0 0" class="muted">Alasan: terbukti di VendorHunter — 784 likes, bersih premium, aman di mata HRD/buyer. Semua background & card <b>solid</b>, tanpa <code>linear-gradient</code> / <code>Brush.verticalGradient</code>.</p>
+</div>
+
+<div class="card">
+<h2>🎯 1 — Problem & Tujuan</h2>
+<div class="grid2">
+<div>
+<h3>Problem lu sekarang</h3>
+<ul>
+<li>Ambil barang affiliate asal comot → terjual 12 biji → gak ada komisi</li>
+<li>Butuh bukti bayar: <b>terjual, rating, harga, komisi</b> — bukan cuma "viral di FYP"</li>
+<li>Bikin video TikTok/Shopee Video untuk barang yang salah = boncos waktu</li>
+</ul>
+</div>
+<div>
+<h3>Tujuan app Android</h3>
+<ul>
+<li>Input: <code>kategori bebas</code> (parfum, hijab, skincare) + <code>filter terjual/rating/harga</code></li>
+<li>Proses: scrape publik <code>shopee.co.id/search?keyword=</code> → parse terjual/rating → scoring <code>log10(terjual) × rating</code> + <code>komisi est (harga × rate)</code></li>
+<li>Output: ranking OP → <code>link affiliate</code> siap tempel + Excel rapi</li>
+</ul>
+</div>
+</div>
+<div class="callout warn"><b>Batasi scope:</b> v1 hanya <b>Shopee</b>. TikTok Shop fee anti-bot keras & butuh login — rawan ke-blok pas demo. Shopee work 100% + bisa dipakai untuk TikTok affiliate juga (barang sama).</div>
+</div>
+
+<div class="card">
+<h2>👤 2 — User & Skenario Android</h2>
+<div class="kv">
+<b>User</b><span>Lu — affiliator Shopee/TikTok di HP Android (gak perlu PC). Butuh hunter di genggaman.</span>
+<b>Flow</b><span>Buka app → ketik <code>parfum</code> → set Min terjual 1000 + Min rating 4.6 + Harga 50k-300k → Cari → List top 20 sorting skor → tap ❤️ Favorit 5 → Copy Link → Bikin video → Export Excel</span>
+<b>Universal</b><span>Android 7.0 - 14 (API 24-34) — semua HP, bukan Asus Max Pro M1 doang.</span>
+</div>
+</div>
+
+<div class="card">
+<h2>🗺️ 3 — Fitur MVP Android (tanpa AI)</h2>
+<table>
+<tr><th>#</th><th>Fitur</th><th>Detail wajib</th><th>Output</th></tr>
+<tr><td>F0</td><td><b>Splash + Onboarding</b></td><td>Solid <code>#F2EFE7</code> + logo <code>#3368A0</code>, tanpa gradient. 2 slide: "Cari yang pasti laku" → "Bukan asal viral".</td><td>-</td></tr>
+<tr><td>F1</td><td><b>Cari Bebas</b></td><td>Input kategori bebas + chip cepat (parfum, hijab, skincare, tumbler, jam). History 10 terakhir (Room).</td><td>query string</td></tr>
+<tr><td>F2</td><td><b>Filter Hunter</b></td><td>Slider + input: <span class="pill primary">Min terjual 1000</span> <span class="pill mid">Min rating 4.6</span> <span class="pill">Harga 50k-300k</span> <span class="pill">Max 500k</span>. Toggle "Hanya rating ≥4.7" + "Komisi ≥10%".</td><td>filter state</td></tr>
+<tr><td>F3</td><td><b>Scrape Shopee</b></td><td>Fetch <code>shopee.co.id/search?keyword={q}&page={n}</code> + parse <code>terjual, rating, harga, nama, link toko/produk</code> via Scrapling/Jsoup. Rate limit 1 req/detik, timeout 30s, retry 1x. Hormati robots.txt.</td><td>raw rows</td></tr>
+<tr><td>F4</td><td><b>Scoring OP</b></td><td>Score = <code>log10(terjual+1) × rating × hargaFactor</code> (harga 50k-300k factor 1.0, luar itu 0.7). Komisi est = <code>harga × rate</code> (rate default 8%, editable). Sorting score DESC. Badge: <span class="pill primary">OP</span> jika terjual>5k & rating≥4.8.</td><td>ranked df</td></tr>
+<tr><td>F5</td><td><b>List Hasil</b></td><td>Card per produk: foto, nama, harga, <b>terjual 4.2k</b>, <b>★4.8</b>, komisi est, badge OP, tombol <code>Copy Link</code> + <code>❤️ Favorit</code> + <code>Buka Shopee</code>.</td><td>list</td></tr>
+<tr><td>F6</td><td><b>Detail + Favorit</b></td><td>Detail: foto besar, terjual, rating, ulasan count, estimasi komisi 5%/8%/10%/15%, history harga (jika ada), link toko. ❤️ Favorit persist Room/Local.</td><td>detail</td></tr>
+<tr><td>F7</td><td><b>Export + Share</b></td><td>Export <code>affiliate_terlaris.xlsx</code> (Nama | Harga | Terjual | Rating | Komisi_est | Link) + CSV + Share Sheet. Copy link 1-tap.</td><td>xlsx/csv</td></tr>
+<tr><td>F8</td><td><b>Log & Legal</b></td><td>Panel log fetch (status 200/429), rate limit info, warning "hanya data publik".</td><td>log</td></tr>
+</table>
+<h3>Non-fungsional Android</h3>
+<ul>
+<li>Stack: <b>Kotlin + Jetpack Compose + Material3 + Room</b> (atau Flutter — gue propose Kotlin karena KasirPro sudah Kotlin, konsisten). Min SDK 24, Target 34.</li>
+<li>FLAT solid: <code>background #F2EFE7</code>, <code>primary #3368A0</code>, <code>secondary #66A3BF</code>, <code>surface #FFFFFF</code>. Tanpa gradient.</li>
+<li>Offline cache 24 jam (TTL harga/terjual) + pull-to-refresh.</li>
+<li>QC di GitHub Actions (test + lint) hijau baru release APK — same gates KasirPro.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>⚖️ 4 — Sumber & Legal</h2>
+<table>
+<tr><th>Sumber</th><th>Data dapat</th><th>Legal</th><th>Peran</th></tr>
+<tr><td><b>Shopee Search (publik)</b></td><td>Nama, harga, terjual, rating, link</td><td><span class="pill primary">Boleh — publik, rate limit</span></td><td><b>UTAMA v1</b></td></tr>
+<tr><td>Shopee Affiliate API</td><td>Komisi rate per kategori</td><td>Butuh daftar affiliate (gratis)</td><td>Opsional — untuk komisi exact (fallback estimasi 8%)</td></tr>
+<tr><td>TikTok Shop / Creative Center</td><td>Heat, view</td><td>Butuh login, anti-bot keras</td><td>DITUNDA v2 — hindari stealth paksa</td></tr>
+<tr><td>IG/FB</td><td>-</td><td>Larang scrape langsung</td><td>Tidak dipakai v1</td></tr>
+</table>
+<div class="callout"><b>TTL:</b> Harga 24 jam, terjual/rating 6 jam, hype 7 hari. Lewat TTL → tag <code>STALE</code>.</div>
+</div>
+
+<div class="card">
+<h2>🏗️ 5 — Arsitektur Android</h2>
+<div class="grid2">
+<div>
+<h3>Stack</h3>
+<ul>
+<li>Kotlin, Compose 1.6.8, Material3, Navigation, Room, Retrofit/OkHttp (fetch Shopee), Coil (foto)</li>
+<li>Module: <code>data/remote/ShopeeRemote</code> → <code>domain/ScoreCalculator</code> → <code>data/local/Room</code> → <code>ui/</code></li>
+<li>Build: Gradle + GitHub Actions (testDebugUnitTest + lintDebug → assembleRelease)</li>
+</ul>
+</div>
+<div>
+<h3>Rumus Scoring v1</h3>
+<ul>
+<li><code>score = log10(terjual+1) × rating × hargaFactor</code></li>
+<li><code>hargaFactor = 1.0</code> jika 50k-300k, <code>0.7</code> jika di luar</li>
+<li><code>komisi_est = harga × rate</code> (rate 0.08 default, user bisa ganti 0.05/0.10/0.15)</li>
+<li>Sorting <code>score DESC</code> → top 20</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div class="card">
+<h2>🗓️ 6 — Rencana Build (setelah approve)</h2>
+<ol class="steps">
+<li><b>Shell + Theme FLAT</b> — nav + theme #3368A0 solid + splash flat</li>
+<li><b>F1+F2</b> — Cari bebas + filter terjual/rating/harga</li>
+<li><b>F3+F4</b> — Fetch Shopee + scoring OP + ranking</li>
+<li><b>F5+F6</b> — List card + detail + favorit Room</li>
+<li><b>F7+F8</b> — Export xlsx/csv + log + rilis APK QC hijau</li>
+</ol>
+<p style="color:var(--muted);font-size:12px">Estimasi 90-120 menit. Tiap step QC hijau.</p>
+</div>
+
+<div class="card">
+<h2>✅ 7 — Acceptance</h2>
+<table>
+<tr><th>Test</th><th>Lolos jika</th></tr>
+<tr><td>Ketik "parfum" + min terjual 1000 + rating 4.6 → Cari</td><td>Keluar 20 produk dengan <b>terjual ≥1000 & rating ≥4.6</b> sorting score DESC</td></tr>
+<tr><td>Badge OP</td><td>Muncul hanya jika terjual>5k & rating≥4.8</td></tr>
+<tr><td>Copy Link</td><td>1 tap → link tercopy, toast "Link affiliate tercopy"</td></tr>
+<tr><td>Favorit</td><td>❤️ → masuk Favorit, persist setelah restart</td></tr>
+<tr><td>Export Excel</td><td><code>affiliate_terlaris.xlsx</code> ada kolom Link + Komisi_est, bisa dibuka di Excel</td></tr>
+<tr><td>Ganti kategori "hijab"</td><td>Tanpa update app, langsung cari baru</td></tr>
+</table>
+</div>
+
+<div class="foot">Affiliate Hunter Shopee PRD v1.0 Android — FLAT #3368A0 Modern Minimal • Tanpa AI • Shopee only • Universal API 24-34 • Approve mockup → gas build</div>
+</div>
+</body>
+</html>

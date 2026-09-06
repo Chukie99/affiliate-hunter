@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#3368A0</color>
+    <color name="primary_mid">#66A3BF</color>
+    <color name="mint">#C8DFDB</color>
+    <color name="bg_warm">#F2EFE7</color>
+    <color name="ink">#25324A</color>
+    <color name="muted">#6B7D94</color>
+    <color name="line">#D6E2E0</color>
+    <color name="ok">#2E7D6B</color>
+    <color name="red">#C25A4A</color>
+    <color name="warn">#8C5A18</color>
+</resources>
