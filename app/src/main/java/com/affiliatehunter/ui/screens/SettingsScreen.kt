@@ -21,7 +21,9 @@ import androidx.compose.ui.platform.LocalContext
 @Composable
 fun SettingsScreen(nav: NavController, vm: SettingsViewModel = hiltViewModel()){
     val affId by vm.affId.collectAsState()
+    val backendUrl by vm.backendUrl.collectAsState()
     var input by remember(affId){ mutableStateOf(affId) }
+    var backendInput by remember(backendUrl){ mutableStateOf(backendUrl) }
     var every12 by remember{ mutableStateOf(true) }
     val ctx = LocalContext.current
     Scaffold(topBar={ TopAppBar(title={Text("Pengaturan")}, navigationIcon={ IconButton(onClick={nav.popBackStack()}){ Icon(Icons.Filled.ArrowBack,null)} }) }, containerColor=BgWarm){ pad ->
@@ -29,10 +31,25 @@ fun SettingsScreen(nav: NavController, vm: SettingsViewModel = hiltViewModel()){
             Card(shape=RoundedCornerShape(14.dp), colors=CardDefaults.cardColors(containerColor=Color.White)){
                 Column(Modifier.padding(14.dp), verticalArrangement=Arrangement.spacedBy(8.dp)){
                     Text("Affiliate ID Shopee", fontWeight=FontWeight.SemiBold, color=Ink)
-                    Text("Tempel ID aff_ kamu biar Copy link langsung jadi link aff", fontSize=11.sp, color=Muted)
+                    Text("Daftar di affiliate.shopee.co.id lalu tempel ID (aff_xxx). Tanpa ini link tidak dapat komisi.", fontSize=11.sp, color=Muted, lineHeight=14.sp)
                     OutlinedTextField(value=input, onValueChange={input=it}, label={Text("aff_id")}, placeholder={Text("contoh: aff_123abc")}, modifier=Modifier.fillMaxWidth(), shape=RoundedCornerShape(12.dp))
-                    Button(onClick={ vm.saveAffId(input) }, colors=ButtonDefaults.buttonColors(containerColor=Primary)){ Text("Simpan") }
-                    if(affId.isNotBlank()) Text("Tersimpan: "+affId, fontSize=11.sp, color=Ok)
+                    Row(horizontalArrangement=Arrangement.spacedBy(8.dp)){
+                        Button(onClick={ vm.saveAffId(input) }, colors=ButtonDefaults.buttonColors(containerColor=Primary)){ Text("Simpan Aff ID") }
+                        if(affId.isNotBlank()) OutlinedButton(onClick={ input=""; vm.saveAffId("") }){ Text("Hapus") }
+                    }
+                    if(affId.isNotBlank()) Text("Tersimpan: "+affId, fontSize=11.sp, color=Ok) else Text("Belum diset — atur dulu sebelum Copy Link!", fontSize=11.sp, color=Red)
+                }
+            }
+            Card(shape=RoundedCornerShape(14.dp), colors=CardDefaults.cardColors(containerColor=Color.White)){
+                Column(Modifier.padding(14.dp), verticalArrangement=Arrangement.spacedBy(8.dp)){
+                    Text("Backend API (opsional)", fontWeight=FontWeight.SemiBold, color=Ink)
+                    Text("Kosongkan = fetch langsung dari HP (rentan diblokir Shopee). Isi URL web Vercel biar anti-blokir & bisa diakses semua user.", fontSize=11.sp, color=Muted, lineHeight=14.sp)
+                    OutlinedTextField(value=backendInput, onValueChange={backendInput=it}, label={Text("https://...vercel.app")}, placeholder={Text("https://affiliate-hunter.vercel.app")}, modifier=Modifier.fillMaxWidth(), shape=RoundedCornerShape(12.dp))
+                    Row(horizontalArrangement=Arrangement.spacedBy(8.dp)){
+                        Button(onClick={ vm.saveBackendUrl(backendInput) }, colors=ButtonDefaults.buttonColors(containerColor=Primary)){ Text("Simpan URL") }
+                        if(backendUrl.isNotBlank()) OutlinedButton(onClick={ backendInput=""; vm.saveBackendUrl("") }){ Text("Direct HP") }
+                    }
+                    if(backendUrl.isNotBlank()) Text("Aktif: "+backendUrl, fontSize=11.sp, color=Ok) else Text("Mode: Direct Shopee dari HP", fontSize=11.sp, color=Muted)
                 }
             }
             Card(shape=RoundedCornerShape(14.dp), colors=CardDefaults.cardColors(containerColor=Color.White)){
@@ -48,7 +65,7 @@ fun SettingsScreen(nav: NavController, vm: SettingsViewModel = hiltViewModel()){
                     }
                 }
             }
-            Text("v2.0.0-OP  FLAT #3368A0  •  API 24-34  •  Shopee only (legal)", fontSize=10.sp, color=Muted)
+            Text("v2.0.1  FLAT #3368A0  •  API 24-34  •  Shopee only (legal)  •  Build GH Actions", fontSize=10.sp, color=Muted)
         }
     }
 }

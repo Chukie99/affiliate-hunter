@@ -43,7 +43,7 @@ jobs:
         run: |
           mkdir -p keystore
           if [ ! -f keystore/release.keystore ]; then
-            keytool -genkeypair -keystore keystore/release.keystore -alias kasirpro -keyalg RSA -keysize 2048 -validity 10000 -storepass affiliatehunter123 -keypass affiliatehunter123 -dname "CN=AffiliateHunter, OU=Dev, O=AffiliateHunter, L=Jakarta, ST=DKI, C=ID"
+            keytool -genkeypair -keystore keystore/release.keystore -alias affiliatehunter -keyalg RSA -keysize 2048 -validity 10000 -storepass affiliatehunter123 -keypass affiliatehunter123 -dname "CN=AffiliateHunter, OU=Dev, O=AffiliateHunter, L=Jakarta, ST=DKI, C=ID"
           fi
           ls -lh keystore/release.keystore
 
@@ -64,6 +64,10 @@ jobs:
             app/build/reports/lint-results-debug.xml
 
       - name: Build release APK
+        env:
+          KEYSTORE_PASSWORD: affiliatehunter123
+          KEY_ALIAS: affiliatehunter
+          KEY_PASSWORD: affiliatehunter123
         run: ./gradlew assembleRelease --no-daemon --stacktrace
 
       - name: Locate APK
@@ -85,7 +89,7 @@ jobs:
         with:
           files: |
             ${{ steps.apk.outputs.apk }}
-            admin/serial-generator.html
+            # admin/serial-generator.html removed — no file
           name: Release ${{ github.ref_name }}
           tag_name: ${{ github.ref_name }}
         env:
