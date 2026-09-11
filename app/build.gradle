@@ -13,8 +13,8 @@ android {
         applicationId "com.affiliatehunter"
         minSdk 24      // Android 7.0 Nougat
         targetSdk 34   // Android 14
-        versionCode 3
-        versionName "2.1.0-FULLSTACK"
+        versionCode 4
+        versionName "2.1.1-FULLSTACK"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // Enable Room schema export for migration tracking

@@ -17,7 +17,7 @@ object ShopeeRemote {
 
     // Optional backend proxy: if set, fetch via backend to avoid Shopee block on device
     // Set via Settings -> Backend URL (empty = direct to Shopee with retry)
-    var backendBaseUrl: String? = null
+    var backendBaseUrl: String? = "https://web-sigma-tawny-34.vercel.app"
 
     suspend fun search(keyword: String, limit: Int = 20, affId: String = ""): List<Product> = withContext(Dispatchers.IO) {
         // Try backend first if configured
