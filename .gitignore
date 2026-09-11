@@ -16,3 +16,8 @@ web/out/
 web/.env.local
 web/.env.production
 
+
+_apk_tmp/
+apk/*.apk
+web/.vercel
+
