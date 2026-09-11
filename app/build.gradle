@@ -51,9 +51,9 @@ android {
     signingConfigs {
         release {
             storeFile file("$rootDir/keystore/release.keystore")
-            storePassword System.getenv("KEYSTORE_PASSWORD") ?: "affiliatehunter123"
-            keyAlias System.getenv("KEY_ALIAS") ?: "affiliatehunter"
-            keyPassword System.getenv("KEY_PASSWORD") ?: "affiliatehunter123"
+            storePassword System.getenv("KEYSTORE_PASSWORD") ?: "kasirpro123"
+            keyAlias System.getenv("KEY_ALIAS") ?: "kasirpro"
+            keyPassword System.getenv("KEY_PASSWORD") ?: "kasirpro123"
         }
     }
 
