@@ -83,7 +83,7 @@ fun DetailScreen(nav: NavController, id: String, vm: HomeViewModel = hiltViewMod
                 Column(Modifier.padding(14.dp)){
                     Text("Velocity 7 hari", fontWeight=FontWeight.SemiBold, color=Ink)
                     Spacer(Modifier.height(8.dp))
-                    LinearProgressIndicator(progress={ (p.soldPerDay/50f).coerceIn(0f,1f) }, modifier=Modifier.fillMaxWidth().height(10.dp), color=Primary)
+                    LinearProgressIndicator(progress={ (p.soldPerDay/50.0).coerceIn(0.0,1.0).toFloat() }, modifier=Modifier.fillMaxWidth().height(10.dp), color=Primary)
                     Text("%.1f terjual/hari".format(p.soldPerDay), fontSize=11.sp, color=Muted)
                     Text("Skor hunter: %.2f (log10(terjual) x rating x sweet-spot)".format(p.score), fontSize=11.sp, color=Muted)
                 }
