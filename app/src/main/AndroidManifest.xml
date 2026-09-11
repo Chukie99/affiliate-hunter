@@ -6,8 +6,8 @@
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/ic_launcher_round"
         android:label="Affiliate Hunter"
         android:theme="@style/Theme.AffiliateHunter">
         <activity android:name=".MainActivity" android:exported="true" android:theme="@style/Theme.AffiliateHunter">
